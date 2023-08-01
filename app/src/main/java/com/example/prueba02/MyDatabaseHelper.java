@@ -121,6 +121,81 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public String obtenerTitulo(int a) {
+        String datos = "";
+        SQLiteDatabase db = getReadableDatabase();
+
+        // Realiza una consulta para obtener los datos de la tabla TLibros
+        Cursor cursor = db.rawQuery("SELECT Titulo FROM TLibros WHERE id= "+a, null);
+
+        // Itera a través del cursor para obtener los datos
+        while (cursor.moveToNext()) {
+            String titulo = cursor.getString(cursor.getColumnIndex("Titulo"));
+
+            // Concatena los datos en el string "datos"
+            datos = titulo;
+        }
+
+        // Cierra el cursor después de obtener los datos
+        cursor.close();
+
+        // Cierra la base de datos
+        db.close();
+
+        // Devuelve los datos obtenidos como un String
+        return datos;
+    }
+
+    public String obtenerAutor(int a) {
+        String datos = "";
+        SQLiteDatabase db = getReadableDatabase();
+
+        // Realiza una consulta para obtener los datos de la tabla TLibros
+        Cursor cursor = db.rawQuery("SELECT Autor FROM TLibros WHERE id= "+a, null);
+
+        // Itera a través del cursor para obtener los datos
+        while (cursor.moveToNext()) {
+            String autor = cursor.getString(cursor.getColumnIndex("Autor"));
+
+            // Concatena los datos en el string "datos"
+            datos = autor;
+        }
+
+        // Cierra el cursor después de obtener los datos
+        cursor.close();
+
+        // Cierra la base de datos
+        db.close();
+
+        // Devuelve los datos obtenidos como un String
+        return datos;
+    }
+
+    public String obtenerRating(int a) {
+        String datos = "";
+        SQLiteDatabase db = getReadableDatabase();
+
+        // Realiza una consulta para obtener los datos de la tabla TLibros
+        Cursor cursor = db.rawQuery("SELECT Rating FROM TLibros WHERE id= "+a, null);
+
+        // Itera a través del cursor para obtener los datos
+        while (cursor.moveToNext()) {
+            String Rating = cursor.getString(cursor.getColumnIndex("Rating"));
+
+            // Concatena los datos en el string "datos"
+            datos = Rating;
+        }
+
+        // Cierra el cursor después de obtener los datos
+        cursor.close();
+
+        // Cierra la base de datos
+        db.close();
+
+        // Devuelve los datos obtenidos como un String
+        return datos;
+    }
+
 
 
 

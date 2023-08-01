@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 String passguardado = pass.getText().toString();
 
                // if (usuarioguardado.equals(usuariolog) && passguardado.equals(passguardado)) {
-                    Toast.makeText(MainActivity.this, "Usuario Logado Correctamente", Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(MainActivity.this, "Usuario Logado Correctamente", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, Ventana1.class);
                     startActivity(intent);
 
@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //else {
 
-                    Toast.makeText(MainActivity.this, "Usuario Incorrecto", Toast.LENGTH_LONG).show();
+                  //  Toast.makeText(MainActivity.this, "Usuario Incorrecto", Toast.LENGTH_LONG).show();
 
               //  }
 
