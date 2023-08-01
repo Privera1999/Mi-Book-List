@@ -46,13 +46,12 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-
-    public String obtenerDatos() {
+    public String obtenerDatos(int a) {
         String datos = "";
         SQLiteDatabase db = getReadableDatabase();
 
         // Realiza una consulta para obtener los datos de la tabla TLibros
-        Cursor cursor = db.rawQuery("SELECT Titulo,Autor,Rating FROM TLibros", null);
+        Cursor cursor = db.rawQuery("SELECT Titulo,Autor,Rating FROM TLibros WHERE id= "+a, null);
 
         // Itera a través del cursor para obtener los datos
         while (cursor.moveToNext()) {
@@ -61,7 +60,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             double rating = cursor.getDouble(cursor.getColumnIndex("Rating"));
 
             // Concatena los datos en el string "datos"
-            datos += "Título: " + titulo + ", Autor: " + autor + ", Rating: " + rating + "\n";
+            datos = titulo + "  " + autor + " " + rating;
         }
 
         // Cierra el cursor después de obtener los datos
@@ -73,6 +72,34 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         // Devuelve los datos obtenidos como un String
         return datos;
     }
+
+
+    public int getRowCount() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = null;
+        int count = 0;
+
+        try {
+            // Ejecuta la consulta COUNT para obtener el número de registros
+            cursor = db.rawQuery("SELECT COUNT(*) FROM Tlibros " , null);
+            if (cursor.moveToFirst()) {
+                count = cursor.getInt(0);
+            }
+        } catch (Exception e) {
+            // Maneja cualquier excepción que pueda ocurrir
+            e.printStackTrace();
+        } finally {
+            // Cierra el cursor y la base de datos
+            if (cursor != null) {
+                cursor.close();
+            }
+            db.close();
+        }
+
+        return count;
+    }
+
+
 
 }
 

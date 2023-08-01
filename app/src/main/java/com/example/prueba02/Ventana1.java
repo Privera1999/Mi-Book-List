@@ -14,13 +14,13 @@ import java.util.List;
 import com.example.prueba02.MyDatabaseHelper;
 
 
-
-
 public class Ventana1 extends AppCompatActivity {
 
     String datosObtenidos;
     // Crea una instancia de MyDatabaseHelper con el contexto adecuado
     MyDatabaseHelper dbHelper = new MyDatabaseHelper(this);
+
+    int Fband=0;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +28,32 @@ public class Ventana1 extends AppCompatActivity {
         setContentView(R.layout.activity_ventana1);
 
         // Llama al método insertDatos() de MyDatabaseHelper para insertar los datos
-       dbHelper.insertDatos("Título del libro", "Autor del libro", 4.5);
+        // dbHelper.insertDatos("Título del libro", "Autor del libro", 4.5);
 
         // Llama al método obtenerDatos() de MyDatabaseHelper para obtener los datos
-        datosObtenidos = dbHelper.obtenerDatos();
+
+        //Array List para añadir los libros
+        ArrayList<String> listaDatos = new ArrayList<>();
+
+        //Obtener el numero de registros
+
+        Fband = dbHelper.getRowCount();
+
+       for(int a = 1;a<=Fband;a++){
+
+           datosObtenidos = dbHelper.obtenerDatos(a);
+
+           listaDatos.add(datosObtenidos);
+
+        }
 
 
-        // Obtén una referencia al TextView por su id
-        EditText textViewDatos = findViewById(R.id.Etautor);
+        //Indicar a que lista corresponde
+        ListView lista = findViewById(R.id.listaLibros);
+        //Crear un adaptador para meter los parametros
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, listaDatos);
+        lista.setAdapter(adapter);
 
-        // Asigna el valor de la variable "datos" al TextView
-        textViewDatos.setText(datosObtenidos);
     }
 
 
