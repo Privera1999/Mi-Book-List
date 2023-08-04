@@ -13,7 +13,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
-    private MyDatabaseHelper dbHelper;
+    MyDatabaseHelper dbHelper = new MyDatabaseHelper(this);
 
 
 
@@ -32,13 +32,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+
         // Crea una instancia de MyDatabaseHelper
         dbHelper = new MyDatabaseHelper(this);
 
         //Iniciar el boton
         boton1 = findViewById(R.id.boton1);
-        usuario = findViewById(R.id.usuario);
-        pass = findViewById(R.id.pass);
+
 
         boton1.setOnClickListener(new View.OnClickListener() {
 

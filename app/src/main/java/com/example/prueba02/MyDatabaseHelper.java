@@ -21,6 +21,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Crea las tablas que necesites aquí
         db.execSQL("CREATE TABLE IF NOT EXISTS TLibros (id INTEGER PRIMARY KEY AUTOINCREMENT , Titulo TEXT, Autor TEXT, Rating DOUBLE)");
+
     }
 
     @Override
@@ -195,6 +196,25 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         // Devuelve los datos obtenidos como un String
         return datos;
     }
+
+
+    public void eliminarLibro(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Elimina el registro
+        db.delete("TLibros", "id = ?", new String[]{String.valueOf(id)});
+        // Actualiza los IDs restantes
+
+        db.close();
+    }
+
+    public void actualizarIDs(int variable) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String updateQuery = "UPDATE TLibros SET id = id - 1 WHERE id > ?";
+        db.execSQL(updateQuery, new Object[]{variable});
+        db.close();
+    }
+
+
 
 
 

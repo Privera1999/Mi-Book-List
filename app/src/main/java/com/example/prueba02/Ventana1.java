@@ -45,21 +45,25 @@ public class Ventana1 extends AppCompatActivity implements AdapterView.OnItemCli
 
         Fband = dbHelper.getRowCount();
 
-        for (int a = 1; a <= Fband; a++) {
+        if (Fband > 0) {
 
-            datosObtenidos = dbHelper.obtenerDatos(a);
 
-            listaDatos.add(datosObtenidos);
+            for (int a = 1; a <= Fband; a++) {
+
+                datosObtenidos = dbHelper.obtenerDatos(a);
+
+                listaDatos.add(datosObtenidos);
+
+            }
+            //Indicar a que lista corresponde
+            ListView lista = findViewById(R.id.listaLibros);
+            //Asignamos un click listener
+            lista.setOnItemClickListener(this);
+            //Crear un adaptador para meter los parametros
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaDatos);
+            lista.setAdapter(adapter);
 
         }
-        //Indicar a que lista corresponde
-        ListView lista = findViewById(R.id.listaLibros);
-        //Asignamos un click listener
-        lista.setOnItemClickListener(this);
-        //Crear un adaptador para meter los parametros
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaDatos);
-        lista.setAdapter(adapter);
-
     }
 
 
