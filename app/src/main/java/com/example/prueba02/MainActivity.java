@@ -22,9 +22,8 @@ public class MainActivity extends AppCompatActivity {
     String usuariolog="Usuario";
     String passlog= "usuario";
 
-    private Button boton1;
-    private EditText usuario;
-    private EditText pass;
+    private Button boton;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,36 +36,34 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new MyDatabaseHelper(this);
 
         //Iniciar el boton
-        boton1 = findViewById(R.id.boton1);
+        boton = findViewById(R.id.boton);
+        Button Agregar = findViewById(R.id.btnAgregar);
 
 
-        boton1.setOnClickListener(new View.OnClickListener() {
 
+        boton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                String usuarioguardado = usuario.getText().toString();
-                String passguardado = pass.getText().toString();
 
-               // if (usuarioguardado.equals(usuariolog) && passguardado.equals(passguardado)) {
-                  //  Toast.makeText(MainActivity.this, "Usuario Logado Correctamente", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(MainActivity.this, Ventana1.class);
                     startActivity(intent);
 
-               // }
+            }
 
-                //else {
+        });
 
-                  //  Toast.makeText(MainActivity.this, "Usuario Incorrecto", Toast.LENGTH_LONG).show();
+        Agregar.setOnClickListener(new View.OnClickListener() {
 
-              //  }
+            public void onClick(View v) {
 
-
+                Intent intent = new Intent(MainActivity.this, Agregar_Libro.class);
+                startActivity(intent);
 
             }
 
-
-
         });
+
+
 
     }
 

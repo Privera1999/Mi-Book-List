@@ -50,9 +50,19 @@ public class Ventana1 extends AppCompatActivity implements AdapterView.OnItemCli
 
             for (int a = 1; a <= Fband; a++) {
 
-                datosObtenidos = dbHelper.obtenerDatos(a);
+
+
+
+
+                datosObtenidos = dbHelper.obtenerDatos(a,"Sin Empezar");
+
+                    if(datosObtenidos.equals("")){
+
+                    }
+                    else{
 
                 listaDatos.add(datosObtenidos);
+                }
 
             }
             //Indicar a que lista corresponde

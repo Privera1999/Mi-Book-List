@@ -13,6 +13,11 @@ import android.widget.Toast;
 import com.example.prueba02.MyDatabaseHelper;
 import android.widget.Button;
 import android.view.View;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+
+
 
 
 public class EditarLibro extends Ventana1 {
@@ -44,18 +49,28 @@ public class EditarLibro extends Ventana1 {
 
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         EditText Libro = findViewById(R.id.ETLibro);
-        EditText Autor = findViewById(R.id.ETAutor);
-
-
+        Spinner spinner = findViewById(R.id.spinnerOptions);
         Libro.setText(LibroAntiguo);
-        Autor.setText(AutorAntiguo);
+
+
+
+        //Autor.setText(AutorAntiguo);
         ratingBar.setRating(Float.parseFloat(RatingAntiguo));
 
+        if(AutorAntiguo.equals("Leido")){
+            spinner.setSelection(0);
+        }
+        else if (AutorAntiguo.equals("Empezado")){
+            spinner.setSelection(1);
+        }
+        else {
+            spinner.setSelection(2);
+        }
 
             //Variable boton igual al boton de editar
             Button Editar = findViewById(R.id.BtnEditar);
             EditText ETLibro = findViewById(R.id.ETLibro);
-            EditText ETAutor = findViewById(R.id.ETAutor);
+          //  EditText ETAutor = findViewById(R.id.ETAutor);
             Button Borrar = findViewById(R.id.btnBorrar);
 
 
@@ -66,8 +81,19 @@ public class EditarLibro extends Ventana1 {
 
                     int idCambiar=Integer.parseInt(idSeleccionado);
                     String libroCambiar=ETLibro.getText().toString();
-                    String autorCambiar=ETAutor.getText().toString();
+                    String autorCambiar;
                     double ratingbarCambiar = (ratingBar.getRating());
+
+                    if(spinner.getSelectedItemId()==0){
+                        autorCambiar="Leido";
+                    }
+                    else if (spinner.getSelectedItemId()==1){
+                        autorCambiar="Empezado";
+                    }
+                    else{
+                        autorCambiar="Sin Empezar";
+                    }
+
 
                    // Toast.makeText(EditarLibro.this, libroCambiar, Toast.LENGTH_LONG).show();
 

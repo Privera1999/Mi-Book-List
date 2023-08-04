@@ -47,12 +47,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public String obtenerDatos(int a) {
+    public String obtenerDatos(int a,String b) {
         String datos = "";
         SQLiteDatabase db = getReadableDatabase();
 
         // Realiza una consulta para obtener los datos de la tabla TLibros
-        Cursor cursor = db.rawQuery("SELECT Titulo,Autor,Rating FROM TLibros WHERE id= "+a, null);
+        Cursor cursor = db.rawQuery("SELECT Titulo, Autor, Rating FROM TLibros WHERE id = ? AND Autor LIKE ?", new String[]{String.valueOf(a), b});
+
 
         // Itera a través del cursor para obtener los datos
         while (cursor.moveToNext()) {
@@ -61,7 +62,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             double rating = cursor.getDouble(cursor.getColumnIndex("Rating"));
 
             // Concatena los datos en el string "datos"
-            datos = titulo + "  " + autor + " " + rating;
+            datos = titulo + "  " + autor + " " + rating+" ";
         }
 
         // Cierra el cursor después de obtener los datos
@@ -82,7 +83,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         try {
             // Ejecuta la consulta COUNT para obtener el número de registros
-            cursor = db.rawQuery("SELECT COUNT(*) FROM Tlibros " , null);
+            cursor = db.rawQuery("SELECT COUNT(*) FROM Tlibros ", null);
             if (cursor.moveToFirst()) {
                 count = cursor.getInt(0);
             }

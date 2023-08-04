@@ -6,29 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".EditarLibro">
 
+
     <Button
         android:id="@+id/BtnEditar"
         android:layout_width="146dp"
         android:layout_height="44dp"
-        android:layout_marginTop="420dp"
+        android:layout_marginTop="320dp"
         android:text="Editar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <Button
         android:id="@+id/btnBorrar"
         android:layout_width="146dp"
         android:layout_height="44dp"
-        android:layout_marginTop="492dp"
+        android:layout_marginTop="404dp"
+        android:backgroundTint="#FF0000"
         android:text="Borrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:backgroundTint="#FF0000" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -59,8 +59,8 @@
         android:id="@+id/TVAutor"
         android:layout_width="251dp"
         android:layout_height="38dp"
-        android:layout_marginTop="172dp"
-        android:text="Autor"
+        android:layout_marginTop="156dp"
+        android:text="Estado"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -69,22 +69,9 @@
         android:id="@+id/TVRating"
         android:layout_width="251dp"
         android:layout_height="38dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="220dp"
         android:text="Rating"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/ETAutor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="208dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.398"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -92,7 +79,7 @@
         android:id="@+id/ETLibro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="116dp"
         android:ems="10"
         android:inputType="text"
         android:text="Name"
@@ -105,10 +92,22 @@
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="304dp"
+        android:layout_marginTop="248dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerOptions"
+        android:layout_width="197dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="176dp"
+        android:entries="@array/options_array"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.378"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
