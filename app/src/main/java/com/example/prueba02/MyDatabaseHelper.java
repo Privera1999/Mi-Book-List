@@ -52,7 +52,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
 
         // Realiza una consulta para obtener los datos de la tabla TLibros
-        Cursor cursor = db.rawQuery("SELECT Titulo, Autor, Rating FROM TLibros WHERE id = ? AND Autor LIKE ?", new String[]{String.valueOf(a), b});
+        Cursor cursor = db.rawQuery("SELECT * FROM TLibros WHERE id = ? AND Autor LIKE ?", new String[]{String.valueOf(a), b});
 
 
         // Itera a través del cursor para obtener los datos
@@ -60,9 +60,10 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             String titulo = cursor.getString(cursor.getColumnIndex("Titulo"));
             String autor = cursor.getString(cursor.getColumnIndex("Autor"));
             double rating = cursor.getDouble(cursor.getColumnIndex("Rating"));
+            String id = cursor.getString(cursor.getColumnIndex("id"));
 
             // Concatena los datos en el string "datos"
-            datos = titulo + "  " + autor + " " + rating+" ";
+            datos = id + ".  " + titulo + "  " + autor + " " + rating+" ";
         }
 
         // Cierra el cursor después de obtener los datos

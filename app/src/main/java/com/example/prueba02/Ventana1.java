@@ -21,7 +21,6 @@ import android.widget.Toast;
 public class Ventana1 extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     //ID seleccionado para luego enviar a editar
-    String idSeleccionado;
     String datosObtenidos;
     // Crea una instancia de MyDatabaseHelper con el contexto adecuado
     MyDatabaseHelper dbHelper = new MyDatabaseHelper(this);
@@ -79,15 +78,25 @@ public class Ventana1 extends AppCompatActivity implements AdapterView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        // Obtén el valor del elemento seleccionado en el ListView
-        //Incremento de id para que corresponda con la base de datos
-        id++;
-        //Lo convertimos en String para poder mandarlo como variable
-        idSeleccionado = ""+id;
+
+
+        //Obtenemos el String del objeto seleccionado
+        String itemTexto = (String) parent.getItemAtPosition(position);
+
+        String resultado = "";
+        for (char c : itemTexto.toCharArray()) {
+            if (c != '.') {
+                resultado += c;
+            } else {
+                break; // Sale del bucle cuando encuentra un punto
+            }
+        }
+
+
 
         Intent intent = new Intent(Ventana1.this, EditarLibro.class);
         //Le mandas la variable miVariable con valor del idSeleccionado
-        intent.putExtra("miVariable",idSeleccionado);
+        intent.putExtra("miVariable",resultado);
         //Iniciar Actividad
         startActivity(intent);
 
