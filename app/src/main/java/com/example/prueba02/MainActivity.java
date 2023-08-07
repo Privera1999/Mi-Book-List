@@ -15,10 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
     MyDatabaseHelper dbHelper = new MyDatabaseHelper(this);
 
-
-
-
-
     String usuariolog="Usuario";
     String passlog= "usuario";
 
@@ -38,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         //Iniciar el boton
         boton = findViewById(R.id.boton);
         Button Agregar = findViewById(R.id.btnAgregar);
+        Button leidos = findViewById(R.id.btnLeidos);
+        Button empezado = findViewById(R.id.btnEmpezados);
 
 
 
@@ -62,6 +60,32 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
+
+
+        leidos.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, Leidos.class);
+                startActivity(intent);
+
+            }
+
+        });
+
+        empezado.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this, Empezado.class);
+                startActivity(intent);
+
+            }
+
+        });
+
+
+
 
 
 
