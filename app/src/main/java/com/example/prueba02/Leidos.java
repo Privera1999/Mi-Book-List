@@ -101,7 +101,7 @@ public class Leidos extends AppCompatActivity {
             //Asignamos un click listener
             lista.setOnItemClickListener(this::onItemClick);
             //Crear un adaptador para meter los parametros
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaDatos);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_item_black_text, listaDatos);
             lista.setAdapter(adapter);
 
         }

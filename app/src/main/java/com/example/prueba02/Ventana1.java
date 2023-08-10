@@ -108,7 +108,7 @@ public class Ventana1 extends AppCompatActivity implements AdapterView.OnItemCli
             //Asignamos un click listener
             lista.setOnItemClickListener(this);
             //Crear un adaptador para meter los parametros
-            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaDatos);
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.list_item_black_text, listaDatos);
             lista.setAdapter(adapter);
 
         }

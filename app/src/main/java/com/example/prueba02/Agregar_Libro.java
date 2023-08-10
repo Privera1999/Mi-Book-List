@@ -27,7 +27,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.view.MenuItem;
-
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.TextView;
 public class Agregar_Libro extends AppCompatActivity {
 
     MyDatabaseHelper dbHelper = new MyDatabaseHelper(this);
@@ -43,8 +48,6 @@ public class Agregar_Libro extends AppCompatActivity {
         EditText Libro = findViewById(R.id.ETLibro);
         Spinner spinner = findViewById(R.id.spinnerOptions);
         Button Agregar = findViewById(R.id.btnAgregar);
-
-
 
 
         BottomNavigationView bottomNavigationView1 = findViewById(R.id.bottomNavigationView);

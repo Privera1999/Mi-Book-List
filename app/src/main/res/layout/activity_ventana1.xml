@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:visibility="visible"
     tools:context=".Ventana1"
     tools:visibility="visible">
@@ -35,10 +36,13 @@
 
     <ListView
         android:id="@+id/listaLibros"
-        android:layout_width="415dp"
-        android:layout_height="734dp"
+        android:layout_width="319dp"
+        android:layout_height="510dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="76dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="#000000"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -63,7 +63,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             String id = cursor.getString(cursor.getColumnIndex("id"));
 
             // Concatena los datos en el string "datos"
-            datos = id + ".  " + titulo + "  " + autor + " " + rating+" ";
+            datos = id + ".  " + titulo + "  "  + "Rating: " + rating+" ";
         }
 
         // Cierra el cursor después de obtener los datos
