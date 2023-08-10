@@ -9,8 +9,14 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.view.MenuItem;
 
 public class Leidos extends AppCompatActivity {
 
@@ -25,6 +31,38 @@ public class Leidos extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_leidos);
+
+
+        BottomNavigationView bottomNavigationView4 = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView4.getMenu().setGroupCheckable(0, true, false);
+
+        bottomNavigationView4.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.menu_item1) {
+                Intent intent1 = new Intent(this, Empezado.class);
+                startActivity(intent1);
+                return true;
+            } else if (item.getItemId() == R.id.menu_item2) {
+                Intent intent1 = new Intent(this, Ventana1.class);
+                startActivity(intent1);
+                return true;
+            } else if (item.getItemId() == R.id.menu_item3) {
+                Intent intent2 = new Intent(this, Leidos.class);
+                startActivity(intent2);
+                return true;
+            }
+            else if (item.getItemId() == R.id.menu_item4) {
+                Intent intent3 = new Intent(this, Agregar_Libro.class);
+                startActivity(intent3);
+                return true;
+            }
+            return false;
+        });
+
+        // Desmarcar cualquier ítem por defecto que pueda estar marcado
+        bottomNavigationView4.getMenu().getItem(0).setChecked(false);
+        bottomNavigationView4.getMenu().getItem(1).setChecked(false);
+        bottomNavigationView4.getMenu().getItem(2).setChecked(false);
+        bottomNavigationView4.getMenu().getItem(3).setChecked(false);
 
         // Llama al método insertDatos() de MyDatabaseHelper para insertar los datos
         // dbHelper.insertDatos("Título del libro", "Autor del libro", 4.5);
@@ -93,6 +131,8 @@ public class Leidos extends AppCompatActivity {
         intent.putExtra("miVariable",resultado);
         //Iniciar Actividad
         startActivity(intent);
+
+
 
 
 

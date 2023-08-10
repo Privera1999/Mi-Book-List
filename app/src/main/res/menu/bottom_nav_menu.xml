@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_item1"
+        android:icon="@drawable/empezado"
+        android:title="Empezado" />
+
+    <item
+        android:id="@+id/menu_item2"
+        android:icon="@drawable/sinempezar2"
+        android:title="Sin Empezar" />
+
+    <item
+        android:id="@+id/menu_item3"
+        android:icon="@drawable/acabado"
+        android:title="Leidos" />
+
+    <item
+        android:id="@+id/menu_item4"
+        android:icon="@drawable/agregar"
+        android:title="Agregar" />
+</menu>

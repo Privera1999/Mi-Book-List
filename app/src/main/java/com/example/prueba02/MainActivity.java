@@ -11,14 +11,18 @@ import android.widget.Toast;
 import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.view.MenuItem;
 public class MainActivity extends AppCompatActivity {
 
     MyDatabaseHelper dbHelper = new MyDatabaseHelper(this);
 
-    String usuariolog="Usuario";
-    String passlog= "usuario";
 
-    private Button boton;
+
+
 
 
     @Override
@@ -31,58 +35,77 @@ public class MainActivity extends AppCompatActivity {
         // Crea una instancia de MyDatabaseHelper
         dbHelper = new MyDatabaseHelper(this);
 
-        //Iniciar el boton
-        boton = findViewById(R.id.boton);
-        Button Agregar = findViewById(R.id.btnAgregar);
-        Button leidos = findViewById(R.id.btnLeidos);
-        Button empezado = findViewById(R.id.btnEmpezados);
+/*
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                // Manejar el evento de selección de los botones aquí
+                switch (item.getItemId()) {
+                    case R.id.menu_item1:
 
+                        return true;
+                    case R.id.menu_item2:
 
+                        return true;
+                    case R.id.menu_item3:
 
-        boton.setOnClickListener(new View.OnClickListener() {
+                        return true;
+                    case R.id.menu_item4:
 
-            public void onClick(View v) {
-
-                    Intent intent = new Intent(MainActivity.this, Ventana1.class);
-                    startActivity(intent);
-
+                        return true;
+                }
+                return false;
             }
-
         });
+        */
 
-        Agregar.setOnClickListener(new View.OnClickListener() {
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.getMenu().setGroupCheckable(0, true, false);
 
-            public void onClick(View v) {
-
-                Intent intent = new Intent(MainActivity.this, Agregar_Libro.class);
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.menu_item1) {
+                Intent intent = new Intent(this, Empezado.class);
                 startActivity(intent);
-
+                return true;
+            } else if (item.getItemId() == R.id.menu_item2) {
+                Intent intent1 = new Intent(this, Ventana1.class);
+                startActivity(intent1);
+                return true;
+            } else if (item.getItemId() == R.id.menu_item3) {
+                Intent intent2 = new Intent(this, Leidos.class);
+                startActivity(intent2);
+                return true;
             }
-
+             else if (item.getItemId() == R.id.menu_item4) {
+                Intent intent3 = new Intent(this, Agregar_Libro.class);
+                startActivity(intent3);
+            return true;
+        }
+            return false;
         });
 
 
-        leidos.setOnClickListener(new View.OnClickListener() {
+        // Desmarcar cualquier ítem por defecto que pueda estar marcado
+        bottomNavigationView.getMenu().getItem(0).setChecked(false);
+        bottomNavigationView.getMenu().getItem(1).setChecked(false);
+        bottomNavigationView.getMenu().getItem(2).setChecked(false);
+        bottomNavigationView.getMenu().getItem(3).setChecked(false);
 
-            public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, Leidos.class);
-                startActivity(intent);
 
-            }
 
-        });
 
-        empezado.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View v) {
 
-                Intent intent = new Intent(MainActivity.this, Empezado.class);
-                startActivity(intent);
 
-            }
 
-        });
+
+
+
+
+
+
 
 
 

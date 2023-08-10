@@ -11,12 +11,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.prueba02.MyDatabaseHelper;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import android.widget.Button;
 import android.view.View;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import android.view.MenuItem;
 
 
 
@@ -32,6 +38,39 @@ public class EditarLibro extends Ventana1 {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_libro);
+
+
+        BottomNavigationView bottomNavigationView2 = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView2.getMenu().setGroupCheckable(0, true, false);
+
+        bottomNavigationView2.setOnNavigationItemSelectedListener(item -> {
+            if (item.getItemId() == R.id.menu_item1) {
+                Intent intent = new Intent(this, Empezado.class);
+                startActivity(intent);
+                return true;
+            } else if (item.getItemId() == R.id.menu_item2) {
+                Intent intent1 = new Intent(this, Ventana1.class);
+                startActivity(intent1);
+                return true;
+            } else if (item.getItemId() == R.id.menu_item3) {
+                Intent intent2 = new Intent(this, Leidos.class);
+                startActivity(intent2);
+                return true;
+            }
+            else if (item.getItemId() == R.id.menu_item4) {
+                Intent intent3 = new Intent(this, Agregar_Libro.class);
+                startActivity(intent3);
+                return true;
+            }
+            return false;
+        });
+
+        // Desmarcar cualquier ítem por defecto que pueda estar marcado
+        bottomNavigationView2.getMenu().getItem(0).setChecked(false);
+        bottomNavigationView2.getMenu().getItem(1).setChecked(false);
+        bottomNavigationView2.getMenu().getItem(2).setChecked(false);
+        bottomNavigationView2.getMenu().getItem(3).setChecked(false);
+
 
         //Obtener la variable del id seleccionado de la otra ventana
         Bundle extras = getIntent().getExtras();
@@ -120,6 +159,8 @@ public class EditarLibro extends Ventana1 {
 
 
         });
+
+
 
 
 
