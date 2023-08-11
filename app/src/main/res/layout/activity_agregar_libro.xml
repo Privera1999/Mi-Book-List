@@ -11,11 +11,12 @@
         android:id="@+id/imageView3"
         android:layout_width="258dp"
         android:layout_height="133dp"
-        android:layout_marginTop="108dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.366"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.142"
         app:srcCompat="@drawable/logom" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -64,7 +65,9 @@
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"
+        />
 
     <TextView
         android:id="@+id/TVAutor"
@@ -75,7 +78,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.623"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"/>
 
     <Spinner
         android:id="@+id/spinnerOptions"
@@ -100,14 +104,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"/>
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="236dp"
         android:layout_height="66dp"
         android:layout_marginTop="464dp"
-        android:textColor="#000000"
+        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.617"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,11 +131,11 @@
         android:layout_height="38dp"
         android:layout_marginTop="436dp"
         android:text="Rating"
-        android:textColor="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"/>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
