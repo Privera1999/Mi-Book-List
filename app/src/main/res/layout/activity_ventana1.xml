@@ -9,6 +9,19 @@
     tools:context=".Ventana1"
     tools:visibility="visible">
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="40dp"
+        android:text="Sin Empezar"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="0dp"
@@ -36,13 +49,13 @@
 
     <ListView
         android:id="@+id/listaLibros"
-        android:layout_width="319dp"
-        android:layout_height="510dp"
+        android:layout_width="308dp"
+        android:layout_height="602dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="84dp"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#000000"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

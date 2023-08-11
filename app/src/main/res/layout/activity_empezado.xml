@@ -34,12 +34,25 @@
 
     <ListView
         android:id="@+id/listaLibros"
-        android:layout_width="309dp"
-        android:layout_height="486dp"
+        android:layout_width="297dp"
+        android:layout_height="619dp"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="84dp"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textColor="#000000"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="40dp"
+        android:text="Empezado"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

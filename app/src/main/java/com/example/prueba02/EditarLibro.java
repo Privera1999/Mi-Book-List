@@ -39,6 +39,7 @@ public class EditarLibro extends Ventana1 {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editar_libro);
 
+        //Barra de navegacion
 
         BottomNavigationView bottomNavigationView2 = findViewById(R.id.bottomNavigationView);
         bottomNavigationView2.getMenu().setGroupCheckable(0, true, false);
@@ -81,19 +82,19 @@ public class EditarLibro extends Ventana1 {
 
         }
 
+        //Obtenemos los datos del libro seleccionado anteriormente
+
         String LibroAntiguo=dbHelper.obtenerTitulo(Integer.parseInt(idSeleccionado));
         String AutorAntiguo= dbHelper.obtenerAutor(Integer.parseInt(idSeleccionado));
         String RatingAntiguo= dbHelper.obtenerRating(Integer.parseInt(idSeleccionado));
 
-
+        //Creacion de variables
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         EditText Libro = findViewById(R.id.ETLibro);
         Spinner spinner = findViewById(R.id.spinnerOptions);
         Libro.setText(LibroAntiguo);
 
 
-
-        //Autor.setText(AutorAntiguo);
         ratingBar.setRating(Float.parseFloat(RatingAntiguo));
 
         if(AutorAntiguo.equals("Leido")){
@@ -152,8 +153,23 @@ public class EditarLibro extends Ventana1 {
 
                 dbHelper.eliminarLibro(Integer.parseInt(idSeleccionado));
                 dbHelper.actualizarIDs(Integer.parseInt(idSeleccionado));
-                Intent intent = new Intent(EditarLibro.this, Ventana1.class);
-                startActivity(intent);
+
+                //Dependiendo de a que lista mande el libro abre la lista correspondiente
+
+                if(spinner.getSelectedItemId()==0){
+                    Intent intent = new Intent(EditarLibro.this, Leidos.class);
+                    startActivity(intent);
+                }
+                else if (spinner.getSelectedItemId()==1){
+                    Intent intent = new Intent(EditarLibro.this, Empezado.class);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(EditarLibro.this, Ventana1.class);
+                    startActivity(intent);
+                }
+
+
 
             }
 

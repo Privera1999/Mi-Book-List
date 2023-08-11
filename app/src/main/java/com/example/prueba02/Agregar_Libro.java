@@ -104,12 +104,25 @@ public class Agregar_Libro extends AppCompatActivity {
                 }
 
 
-                // Toast.makeText(EditarLibro.this, libroCambiar, Toast.LENGTH_LONG).show();
+                Toast.makeText(Agregar_Libro.this, "Libro Agregado Correctamente", Toast.LENGTH_LONG).show();
 
                 dbHelper.insertDatos(libroCambiar,autorCambiar,ratingbarCambiar);
 
-                Intent intent = new Intent(Agregar_Libro.this, MainActivity.class);
-                startActivity(intent);
+                //Dependiendo de a que lista mande el libro abre la lista correspondiente
+
+                if(spinner.getSelectedItemId()==0){
+                    Intent intent = new Intent(Agregar_Libro.this, Leidos.class);
+                    startActivity(intent);
+                }
+                else if (spinner.getSelectedItemId()==1){
+                    Intent intent = new Intent(Agregar_Libro.this, Empezado.class);
+                    startActivity(intent);
+                }
+                else{
+                    Intent intent = new Intent(Agregar_Libro.this, Ventana1.class);
+                    startActivity(intent);
+                }
+
 
             }
 
