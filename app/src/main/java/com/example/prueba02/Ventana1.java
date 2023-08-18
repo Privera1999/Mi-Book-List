@@ -39,6 +39,8 @@ public class Ventana1 extends AppCompatActivity implements AdapterView.OnItemCli
         setContentView(R.layout.activity_ventana1);
 
 
+        //Barra de navegacion
+
         BottomNavigationView bottomNavigationView5 = findViewById(R.id.bottomNavigationView);
         bottomNavigationView5.getMenu().setGroupCheckable(0, true, false);
 
@@ -71,10 +73,6 @@ public class Ventana1 extends AppCompatActivity implements AdapterView.OnItemCli
         bottomNavigationView5.getMenu().getItem(3).setChecked(false);
 
 
-        // Llama al método insertDatos() de MyDatabaseHelper para insertar los datos
-        // dbHelper.insertDatos("Título del libro", "Autor del libro", 4.5);
-
-        // Llama al método obtenerDatos() de MyDatabaseHelper para obtener los datos
 
         //Array List para añadir los libros
         ArrayList<String> listaDatos = new ArrayList<>();
@@ -83,14 +81,11 @@ public class Ventana1 extends AppCompatActivity implements AdapterView.OnItemCli
 
         Fband = dbHelper.getRowCount();
 
+        //Condicional y bucle para optener 1 a 1 los datos de los registros
+
         if (Fband > 0) {
 
-
             for (int a = 1; a <= Fband; a++) {
-
-
-
-
 
                 datosObtenidos = dbHelper.obtenerDatos(a,"Sin Empezar");
 

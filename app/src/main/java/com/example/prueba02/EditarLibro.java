@@ -119,6 +119,8 @@ public class EditarLibro extends Ventana1 {
 
                 public void onClick(View v) {
 
+                    //Obtener lo datos introducidos por el usuario
+
                     int idCambiar=Integer.parseInt(idSeleccionado);
                     String libroCambiar=ETLibro.getText().toString();
                     String autorCambiar;
@@ -134,9 +136,7 @@ public class EditarLibro extends Ventana1 {
                         autorCambiar="Sin Empezar";
                     }
 
-
-                   // Toast.makeText(EditarLibro.this, libroCambiar, Toast.LENGTH_LONG).show();
-
+                    //actualizazr registro en la BBDD
                     dbHelper.actualizarRegistro(idCambiar,libroCambiar,autorCambiar,ratingbarCambiar);
                     Intent intent = new Intent(EditarLibro.this, Ventana1.class);
                     startActivity(intent);

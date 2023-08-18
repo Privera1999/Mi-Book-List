@@ -77,6 +77,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+
+    //Obtener el numero de registros
     public int getRowCount() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = null;
@@ -124,6 +126,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    //Obtener el titulo
+
     public String obtenerTitulo(int a) {
         String datos = "";
         SQLiteDatabase db = getReadableDatabase();
@@ -149,6 +153,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return datos;
     }
 
+    //Obtener el autor
     public String obtenerAutor(int a) {
         String datos = "";
         SQLiteDatabase db = getReadableDatabase();
@@ -174,6 +179,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         return datos;
     }
 
+
+    //Obtener el Rating
     public String obtenerRating(int a) {
         String datos = "";
         SQLiteDatabase db = getReadableDatabase();
@@ -200,6 +207,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    //Eliminar Registro
+
     public void eliminarLibro(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         // Elimina el registro
@@ -208,6 +217,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
         db.close();
     }
+
+    //Actualizar registro
 
     public void actualizarIDs(int variable) {
         SQLiteDatabase db = this.getWritableDatabase();

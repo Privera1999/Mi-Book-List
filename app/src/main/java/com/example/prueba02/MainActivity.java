@@ -35,30 +35,8 @@ public class MainActivity extends AppCompatActivity {
         // Crea una instancia de MyDatabaseHelper
         dbHelper = new MyDatabaseHelper(this);
 
-/*
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                // Manejar el evento de selección de los botones aquí
-                switch (item.getItemId()) {
-                    case R.id.menu_item1:
 
-                        return true;
-                    case R.id.menu_item2:
-
-                        return true;
-                    case R.id.menu_item3:
-
-                        return true;
-                    case R.id.menu_item4:
-
-                        return true;
-                }
-                return false;
-            }
-        });
-        */
+        //Barra de Navegacion
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.getMenu().setGroupCheckable(0, true, false);

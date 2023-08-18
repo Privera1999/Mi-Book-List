@@ -35,6 +35,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 public class Agregar_Libro extends AppCompatActivity {
 
+    //Instanciar la BBDD
     MyDatabaseHelper dbHelper = new MyDatabaseHelper(this);
 
     @Override
@@ -43,15 +44,18 @@ public class Agregar_Libro extends AppCompatActivity {
         setContentView(R.layout.activity_agregar_libro);
 
 
-
+        //Creamos las variables de los elementos
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         EditText Libro = findViewById(R.id.ETLibro);
         Spinner spinner = findViewById(R.id.spinnerOptions);
         Button Agregar = findViewById(R.id.btnAgregar);
 
-
+        //Indicamos que la barra de navegación no tenga ninguna opcion seleccionada por defecto
         BottomNavigationView bottomNavigationView1 = findViewById(R.id.bottomNavigationView);
         bottomNavigationView1.getMenu().setGroupCheckable(0, true, false);
+
+        //Condicional para saber que opcion del panel de navegación se selecciona
+        //Y abre un nuevo intent con esa ventana
 
         bottomNavigationView1.setOnNavigationItemSelectedListener(item -> {
             if (item.getItemId() == R.id.menu_item1) {
@@ -88,6 +92,7 @@ public class Agregar_Libro extends AppCompatActivity {
 
             public void onClick(View v) {
 
+                //Creamos variables en las cuales obtenemos los datos introducidos por el usuario
 
                 String libroCambiar=Libro.getText().toString();
                 String autorCambiar;
@@ -103,9 +108,10 @@ public class Agregar_Libro extends AppCompatActivity {
                     autorCambiar="Sin Empezar";
                 }
 
-
+                //Mensaje flotante Indicando que el libro se ha creado correctamente
                 Toast.makeText(Agregar_Libro.this, "Libro Agregado Correctamente", Toast.LENGTH_LONG).show();
 
+                //Insertar Datos en la BBDD
                 dbHelper.insertDatos(libroCambiar,autorCambiar,ratingbarCambiar);
 
                 //Dependiendo de a que lista mande el libro abre la lista correspondiente

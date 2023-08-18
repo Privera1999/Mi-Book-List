@@ -41,6 +41,8 @@ public class Empezado extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_empezado);
 
+        //Barra de navegacion
+
         BottomNavigationView bottomNavigationView3 = findViewById(R.id.bottomNavigationView);
         bottomNavigationView3.getMenu().setGroupCheckable(0, true, false);
 
@@ -72,12 +74,7 @@ public class Empezado extends AppCompatActivity {
         bottomNavigationView3.getMenu().getItem(2).setChecked(false);
         bottomNavigationView3.getMenu().getItem(3).setChecked(false);
 
-        // Llama al método insertDatos() de MyDatabaseHelper para insertar los datos
-        // dbHelper.insertDatos("Título del libro", "Autor del libro", 4.5);
 
-        // Llama al método obtenerDatos() de MyDatabaseHelper para obtener los datos
-
-        //Array List para añadir los libros
         ArrayList<String> listaDatos = new ArrayList<>();
 
         //Obtener el numero de registros

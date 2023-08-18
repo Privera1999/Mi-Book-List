@@ -33,6 +33,8 @@ public class Leidos extends AppCompatActivity {
         setContentView(R.layout.activity_leidos);
 
 
+        //Barra de navegacion
+
         BottomNavigationView bottomNavigationView4 = findViewById(R.id.bottomNavigationView);
         bottomNavigationView4.getMenu().setGroupCheckable(0, true, false);
 
@@ -64,10 +66,6 @@ public class Leidos extends AppCompatActivity {
         bottomNavigationView4.getMenu().getItem(2).setChecked(false);
         bottomNavigationView4.getMenu().getItem(3).setChecked(false);
 
-        // Llama al método insertDatos() de MyDatabaseHelper para insertar los datos
-        // dbHelper.insertDatos("Título del libro", "Autor del libro", 4.5);
-
-        // Llama al método obtenerDatos() de MyDatabaseHelper para obtener los datos
 
         //Array List para añadir los libros
         ArrayList<String> listaDatos = new ArrayList<>();
@@ -80,10 +78,6 @@ public class Leidos extends AppCompatActivity {
 
 
             for (int a = 1; a <= Fband; a++) {
-
-
-
-
 
                 datosObtenidos = dbHelper.obtenerDatos(a,"Leido");
 
